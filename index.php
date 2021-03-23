@@ -36,7 +36,7 @@
 
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <p class="lead">
-                            Нет аккаунта? - <a href="#">зарегистрируйтесь</a>!
+                            Нет аккаунта? - <a href="/register.php">зарегистрируйтесь</a>!
                         </p>
                     </form>
 
