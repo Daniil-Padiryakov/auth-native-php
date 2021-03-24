@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if ($_SESSION['user']) {
+    header('Location: ../profile.php');
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,27 +27,30 @@
             <div class="card card-white">
                 <div class="card-body">
 
-                    <form>
+                    <form action="vendor/signin.php" method="post">
 
                         <div class="form-group">
-                            <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Enter email">
+                            <label>Логин</label>
+                            <input type="text" name="login" class="form-control" placeholder="Введите логин">
                         </div>
 
                         <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
-                        </div>
-
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input">
-                            <label class="form-check-label">Check me out</label>
+                            <label>Пароль</label>
+                            <input type="password" name="password" class="form-control" placeholder="Введите пароль ">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <p class="lead">
                             Нет аккаунта? - <a href="/register.php">зарегистрируйтесь</a>!
                         </p>
+
+                        <?php
+                        if ($_SESSION['message']) {
+                            echo '<p> ' . $_SESSION['message'] . ' </p>';
+                        }
+                        unset($_SESSION['message']);
+                        ?>
+
                     </form>
 
                 </div>
